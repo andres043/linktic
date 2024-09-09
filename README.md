@@ -13,6 +13,9 @@ En Subred publica contendrá el CDN (CLoudfront) que permite disponibilizar el c
 En la subred privada se disponibilizará por un lado un balanceador de carga el cual balanceará las peticiones entrantes entre las diferentes instancias EC2 existentes en el Auto Scaling Group, el cual se espera logre crear instancias dependiendo de la configuración realizada. Por otro lado, se tiene una lambda, la cual al ser serverless se espera que se disponibilice a medida de que sea requerido, permitiendo tener disponiblidad y escalabilidad sobre la misma.
 
 Cada una de estos servicios consultarán en una base de datos en memoria Redis, la cual permitirá tener información de una manera más rapida, esta BD será actualizada por medio de streams de Dynamo (No está plasmado en diseño) generando eventos al momento de realizar inserciones sobre las tablas Orders y Products, este stream accionará una lamda que se encargará de actualizar la BD en memoria.
+
+![Diagrama en blanco](https://github.com/user-attachments/assets/42484188-0c9e-4f57-94ff-31fcc2613449)
+
   
 ## DevOps
 
